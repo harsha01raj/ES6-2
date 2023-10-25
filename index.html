@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<body>
+    <h1>ES6-2 ASSINGMENT</h1>
+</body>
+<script>
+    function array(...element){
+        this.size=element.length;
+        for(let i=0;i<element.length;i++){
+            this[i]=element[i];
+        }
+        print()
+    }
+
+    array.prototype.push=function(ele){
+        this[this.size]=ele;
+        this.size++;
+        print();
+    }
+
+    array.prototype.pop=function(){
+        this.size--;
+        delete this[this.size];
+        print();
+    }
+
+    array.prototype.top=function(){
+        if(this.size===0){
+            return "Array is empty";
+        }
+        return this[this.size - 1];
+    }
+
+    array.prototype.reverse=function(){
+        let arr=[];
+        for(let i=this.size-1;i>=0;i--){
+            arr.push(this[i]);
+        }
+        console.log(`[${arr.join(',')}]`);
+    }
+
+    array.prototype.print=function(){
+        console.log(this.size)
+        let arr=[]
+        for(let i=0;i<this.size;i++){
+            arr.push(this[i]);
+        }
+        console.log(`[${arr.join(',')}]`);
+    }
+        
+   
+
+
+
+
+    let myarray = new array(1,2,3,4);
+    myarray.print();
+    myarray.push(5);
+    myarray.print();
+    myarray.pop();
+    myarray.print();
+    console.log(myarray.top());
+    myarray.reverse();
+    console.log(myarray.size);
+
+
+</script>
+</html>
